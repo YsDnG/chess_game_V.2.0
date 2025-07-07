@@ -1,0 +1,268 @@
+.chessboard-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+   
+    gap: 1em;
+    box-sizing: border-box;
+  }
+  
+  /* Conteneur du plateau d'échecs */
+  .board-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 0; /* Permet au conteneur de rétrécir */
+  }
+  
+  /* Conteneur du récapitulatif des mouvements */
+  .move-recap-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-width: 0; /* Permet au conteneur de rétrécir */
+    overflow: hidden;
+  }
+  
+  .chessboard-container > * {
+    flex: 1; /* Permet aux enfants de grandir également */
+    display: flex; /* Si besoin que les enfants soient flexibles eux aussi */
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Bouton pour afficher l'historique sur mobile */
+.show-history-btn {
+  display: none; /* Caché par défaut */
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: var(--interact);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+}
+
+.show-history-btn:hover {
+  transform: scale(1.1);
+}
+
+/* Styles pour le popup d'historique */
+.move-recap-popup {
+  display: none;
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  width: 280px;
+  max-height: 60vh;
+  background-color: var(--background--2);
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  z-index: 999;
+  overflow: hidden;
+  border: 1px solid var(--text-second);
+}
+
+.move-recap-popup.show {
+  display: block;
+  animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.move-recap-popup .move-recap-content {
+  padding: 15px;
+  max-height: calc(60vh - 40px);
+  overflow-y: auto;
+}
+
+.move-recap-popup h4 {
+  margin: 0 0 10px 0;
+  padding: 10px 15px;
+  background-color: var(--background--1);
+  color: var(--text-main);
+  font-size: 1rem;
+  border-bottom: 1px solid var(--text-second);
+}
+
+/* Afficher le bouton uniquement sur mobile */
+@media (max-width: 600px) {
+  .show-history-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Cacher le récapitulatif par défaut sur mobile */
+  .move-recap-container {
+    display: none;
+  }
+}
+
+/* Controls for AI player */
+  .ai-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 50px;
+    color: #f0f0f0;
+    font-size: 0.9rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 100%;
+    padding: 0.5rem 1rem;
+    box-sizing: border-box;
+  }
+
+  /* Style du menu déroulant pour la difficulté */
+  #difficulty-select {
+    background-color: #2c2c44; /* Fond sombre */
+    color: #e0e0e0;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    padding: 0.5rem 0.8rem;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+  }
+
+  #difficulty-select:hover {
+    border-color: #8a4fff; /* Accentuation au survol */
+  }
+
+  /* Style du bouton switch pour activer/désactiver l'IA */
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 28px;
+  }
+
+  .switch input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #4a4a68; /* Couleur du switch désactivé */
+    transition: .4s;
+  }
+
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+  }
+
+  input:checked + .slider {
+    background-color: #8a4fff; /* Couleur du switch activé */
+  }
+
+  input:focus + .slider {
+    box-shadow: 0 0 1px #8a4fff;
+  }
+
+  input:checked + .slider:before {
+    transform: translateX(22px);
+  }
+
+  /* Rendre le switch et le curseur ronds */
+  .slider.round {
+    border-radius: 34px;
+  }
+
+  .slider.round:before {
+    border-radius: 50%;
+  }
+  
+  .chessboard-disabled{
+    opacity: 0.5;  
+    pointer-events: none;  
+  }
+  
+  .chessboard {
+    background: #f0d9b5;
+    border-radius: 0.8vw;
+    box-shadow: 0 0.4vw 0.6vw rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    width: 100%;
+    max-width: 80vw;
+    margin: 0 auto;
+    padding: 2vw;
+    height: 100vh;
+    max-height: 100vh;
+  }
+
+  .chessboard .square-55d63 {
+    background: #f0d9b5;
+    border-radius: 0.8vw;
+    transition: all 0.3s ease;
+  }
+
+  .chessboard .square-55d63.light {
+    background: #f0d9b5;
+  }
+
+  .chessboard .square-55d63.dark {
+    background: #b58863;
+  }
+
+  .chessboard .square-55d63.highlight {
+    background: rgba(255, 255, 0, 0.3);
+  }
+
+  .chessboard .square-55d63.possible-moves {
+    background: rgba(0, 255, 0, 0.3);
+  }
+
+  .chessboard .square-55d63.last-move {
+    background: rgba(255, 0, 0, 0.3);
+  }
+
+  .chessboard .square-55d63:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  .chessboard .piece {
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+
+  .chessboard .piece.dragging {
+    opacity: 0.5;
+    transform: scale(1.1);
+  }

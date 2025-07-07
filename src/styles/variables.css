@@ -1,0 +1,32 @@
+:root 
+{
+  --background--1:#706C61; /* noir profond*/
+  --background--2 :#2A2B2A; /* (Header, cartes, éléments secondaires)*/
+  --background--3:#778b77;
+  
+  --interact:#E5446D; /* (Légère distinction pour les éléments interactifs)*/
+
+  --text-main:#F8F4E3;
+  --text-second:#FF8966;
+
+  --button : #007AFF;
+  --validation-succes :  #1A2B40 ;
+  --erreur-annulations:#FF5252;
+  --active : #29c731 ;
+  --inactive:#e21616 ;
+
+  --primary: #e2b857;
+  --secondary: #2e2f4f;
+  --background-gradient: linear-gradient(135deg, #181c2b 0%, #23243a 60%, #31204b 100%);
+  --panel-bg: rgba(34, 37, 57, 0.97);
+  --card-bg: rgba(34, 37, 57, 0.92);
+  --text-main: #f7f7f7;
+  --text-soft: #bdbecb;
+  --accent: #e2b857;
+  --shadow: 0 6px 32px 0 rgba(0,0,0,0.18);
+  --border-radius: 1.2em;
+  --header-height: 10vh;
+  --cards-height: 15vh;
+  --main-height: 65vh;
+
+}

@@ -1,0 +1,185 @@
+
+@media (max-width : 950px) {
+
+
+
+  .small-media-display
+  {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
+  }
+  .small-media-display > *{
+    font-size: 1.1rem;
+  }
+
+  .game-section
+  {
+    align-items: center;
+    justify-content: center;
+    
+  }
+
+  .header
+  {
+    max-height: 10vh;
+  }
+
+  .card-section{
+    max-height: 20vh;
+  }
+  
+
+.card{
+  min-width: 30vw ;
+  max-height: 20vh;
+  font-size: 0.9em;
+}
+}
+
+/* Simplification des contrôles IA sur petits écrans */
+@media (max-width: 800px) {
+  .ai-controls {
+    padding: 0.3rem 0.8rem;
+    gap: 0.8rem;
+  }
+  
+  /* Cacher le libellé et ne garder que le sélecteur */
+  .ai-controls > span:not(.elo-display) {
+    display: none;
+  }
+  
+  /* Ajuster le sélecteur de difficulté */
+  #difficulty-select {
+    max-width: 120px;
+    padding: 0.4rem 0.6rem;
+    font-size: 0.8rem;
+  }
+  
+  /* Ajuster l'affichage ELO */
+  .elo-display {
+    font-size: 0.8rem;
+    white-space: nowrap;
+  }
+  
+  /* Cacher le texte dans le sélecteur, ne garder que la valeur */
+  #difficulty-select option[value] {
+    padding-right: 10px;
+  }
+  
+  #difficulty-select option:not(:checked) {
+    display: none;
+  }
+}
+
+  /* Styles pour la mise en page responsive */
+  @media (max-width: 1024px) {
+    .game-container {
+      flex-direction: column;
+      align-items: stretch;
+    }
+    
+    .evaluation-panel,
+    .chessboard-container {
+      width: 100% !important;
+      max-width: 100% !important;
+    }
+    
+    .chessboard-container {
+      flex-direction: column;
+      height: auto;
+    }
+    
+    .board-container,
+    .move-recap-container {
+      width: 100%;
+      max-width: 100%;
+    }
+    
+    .move-recap-container {
+      margin-top: 1em;
+    }
+  }
+  
+  /* Style pour le sélecteur mobile des cartes */
+  .mobile-cards-select {
+    width: 50%;
+    height: 10vh;
+    margin: 0.5em 0;
+    
+  }
+  
+  .mobile-cards-select::after {
+    content: '▼';
+    position: absolute;
+    top: 50%;
+    right: 1rem;
+    transform: translateY(-50%);
+    color: var(--text-second);
+    pointer-events: none;
+  }
+  
+  .mobile-cards-select select {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    padding-right: 2.5rem; /* Espace pour la flèche */
+    background-color: var(--background--2);
+    color: var(--text-main);
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    appearance: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  
+  .mobile-cards-select select:focus {
+    outline: none;
+    border-color: var(--interact);
+    box-shadow: 0 0 0 2px rgba(138, 79, 255, 0.2);
+  }
+  
+  .mobile-cards-select select option {
+    background-color: var(--background--1);
+    color: var(--text-main);
+    padding: 0.5rem;
+  }
+  
+  /* Cacher les paragraphes dans les cartes sur petits écrans */
+  @media (max-width: 800px) {
+  .card p {
+    display: none;
+  }
+  
+  .card {
+    padding: 0.5em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media (max-width: 600px) {
+
+  .game-section
+  {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+  }
+
+  .evaluation-panel
+  {
+    height: 30vh;
+    width: 70% !important;
+  }
+}
+  

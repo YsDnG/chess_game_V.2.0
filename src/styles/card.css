@@ -1,0 +1,105 @@
+@import '../styles/variables.css';
+
+/* Styles de base pour toutes les cartes */
+.card {
+    color: var(--text-main);
+    border-radius: 8px;
+    border: 1px solid var(--border-color, #2a2a3a);
+    padding: 1.5em;
+    width: 100%;
+    max-width: 30vw;
+    min-width: 100px;
+    min-height: 20vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--card-bg, #2a2a3a);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    margin: 0.5em;
+}
+
+/* Effet de survol */
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    border-color: var(--primary-color, #4a90e2);
+}
+
+/* Styles pour le contenu des cartes */
+.card .icon {
+    width: 2.5em;
+    height: 2.5em;
+    margin-bottom: 1em;
+    transition: transform 0.3s ease;
+}
+
+.card:hover .icon {
+    transform: scale(1.1);
+}
+
+/* Styles pour les titres */
+.card h2 {
+    color: var(--text-main, #ffffff);
+    font-size: 1.4em;
+    margin: 0.5em 0;
+    font-weight: 600;
+}
+
+/* Styles pour les paragraphes */
+.card p {
+    color: var(--text-secondary, #b0b0c0);
+    font-size: 0.95em;
+    margin: 0.5em 0 0;
+    line-height: 1.5;
+}
+
+/* Variantes de cartes */
+.card.Train {
+    border-top: 4px solid #4CAF50;
+}
+
+.card.Learn {
+    border-top: 4px solid #2196F3;
+}
+
+.card.Versus {
+    border-top: 4px solid #FF5722;
+}
+
+.card.Versus svg, .card.Versus h2, .card.Versus p{
+
+    color: #FF5722;
+  }
+
+
+.card.Train svg, .card.Train h2 , .card.Train p {
+    color: #4CAF50;
+  }
+
+  .card.Learn svg, .card.Learn h2, .card.Learn p {
+    color: #2196F3;
+  }
+
+
+/* Responsive */
+@media (max-width: 768px) {
+    .card {
+        max-width: 30%;
+        margin: 0.5em 0;
+    }
+}
+
+.cards-section
+{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1em;
+  color: var(--text-main);
+ 
+  
+}

@@ -1,0 +1,212 @@
+.evaluation-panel {
+  background-color: var(--card-bg);
+  border-radius: 8px;
+  padding: 1.25rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  color: var(--text-main);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  width: 100%;
+  max-width: 25vw;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+.evaluation-panel h3 {
+  color: var(--text-second);
+  margin-bottom: 1.25rem;
+  font-size: clamp(0.9rem, 1.5vw + 0.5rem, 1.3rem); /* Taille réactive */
+  border-bottom: 2px solid var(--interact);
+  padding-bottom: 0.75rem;
+  text-align: center;
+  line-height: 1.2;
+  transition: font-size 0.3s ease;
+}
+
+/* Ajustements pour différentes tailles d'écran */
+@media (max-width: 768px) {
+  .evaluation-panel h3 {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .evaluation-panel h3 {
+    font-size: 0.9rem;
+    margin-bottom: 0.75rem;
+  }
+}
+
+/* Pour les très grands écrans */
+@media (min-width: 1600px) {
+  .evaluation-panel h3 {
+    font-size: 1.5rem;
+  }
+}
+
+.evaluation-panel .info-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.5em;
+}
+
+/* Style pour l'estimation ELO */
+.evaluation-panel .elo-estimate {
+  margin-top: 0.5rem;
+  padding-top: 0.5rem;
+  border-top: 1px dashed var(--border-color);
+}
+
+.evaluation-panel .elo-estimate .value {
+  color: var(--interact);
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+.score-slider-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 10px 0;
+}
+
+.score-label {
+  margin-bottom: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-main);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.score-slider {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 20px; /* Un peu plus épais pour une meilleure visibilité */
+  background: #e0e0e0; /* Couleur de fond par défaut */
+  border: 1px solid #ccc;
+  outline: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.score {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 0.2em;
+}
+
+/* Style pour Webkit (Chrome, Safari, Opera) */
+.score-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #4a4a4a;
+  cursor: pointer;
+  border: 1px solid #333;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Style pour Firefox */
+.score-slider::-moz-range-thumb {
+  width: 12px;
+  height: 24px;
+  background: #4a4a4a;
+  cursor: pointer;
+  border: 1px solid #333;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Style pour la piste (track) dans Firefox */
+.score-slider::-moz-range-track {
+  width: 100%;
+  height: 12px;
+  border-radius: 6px;
+  background: linear-gradient(90deg, 
+    #ffffff 0%, 
+    #ffffff 50%, 
+    #000000 50%, 
+    #000000 100%
+  );
+  background-size: 100% 100%;
+  background-position: 0 0;
+}
+
+/* Style pour la zone sélectionnée dans Firefox */
+.score-slider::-moz-range-progress {
+  height: 100%;
+  border-radius: 6px;
+  background: transparent;
+}
+
+/* Style pour le label de score */
+.score-value {
+  margin-top: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-second);
+  text-align: center;
+}
+.evaluation-panel .info-item {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 0.75rem;
+  background: var(--background-gradient);
+  border-radius: 6px;
+}
+
+.evaluation-panel .info-item label {
+  color: var(--text-second);
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.evaluation-panel .info-item .value {
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+/* Style pour les scores positifs et négatifs */
+.evaluation-panel .score-positive {
+  color: var(--active);
+}
+
+.evaluation-panel .score-negative {
+  color: var(--erreur-annulations);
+}
+
+/* Style pour le meilleur coup */
+.evaluation-panel .move-description {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.evaluation-panel .move-description .piece {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--text-second);
+  margin-right: 0.25rem;
+}
+
+.evaluation-panel .move-description .position {
+  font-family: monospace;
+  font-size: 1.1rem;
+  padding: 0.25rem 0.5rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  display: inline-block;
+  color: var(--text-main);
+}
+
+.evaluation-panel .move-description .arrow {
+  color: var(--interact);
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin: 0 0.25rem;
+}

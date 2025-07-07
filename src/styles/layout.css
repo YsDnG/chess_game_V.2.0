@@ -1,0 +1,78 @@
+body, html {
+    margin: 0;
+    padding: 0;
+  }
+
+  p{
+    max-width: 600px;
+    margin: 0 auto 24px;
+    font-size: 18px;
+    color: var(--text-main);
+    line-height: 1.6;
+  }
+
+
+  img
+   {
+    border-radius: 10px;
+    max-width: 30vw;
+    max-height: 10vh;
+    height: auto;
+    box-shadow: 0px 0px 10px rgba(240, 60, 6, 0.3);
+   }
+
+h4{
+    color: var(--text-second);
+  }
+
+  .Active
+  {
+    background-color: var(--active) !important;
+  }
+  .Inactive
+  {
+    background-color: var(--inactive) !important;
+  }
+
+ 
+
+
+
+  .desktop-display
+  {
+    display: flex;
+    flex-direction: column;
+    
+    
+    gap: 0.5em;
+  }
+
+
+
+
+
+                                        /********************** MULTI ***************/
+
+.Multi
+{
+  background-image: url("../ressource/img/chess_background_n2.png");
+  background-size: cover; /* Couvre toute la page */
+  background-repeat: no-repeat; /* Pas de répétition */
+  background-position: 70% bottom;
+  
+}
+
+
+
+.menu-multi 
+{
+  width: 100vw;
+  display: flex;
+  justify-content: left;
+  align-items: top;
+  gap: 0.5em;
+  font-family: 'Courier New', Courier, monospace;
+
+}
+
+
