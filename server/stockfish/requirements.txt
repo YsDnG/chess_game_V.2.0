@@ -1,1 +1,4 @@
---editable .
+python-chess==1.999
+numpy==1.24.3
+flask==2.3.3
+flask-cors==4.0.0
