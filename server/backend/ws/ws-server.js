@@ -1,13 +1,11 @@
 import { WebSocketServer } from "ws";
-import {Chess} from "chess.js"
+import { Chess } from "chess.js";
 import { v4 as uuidv4 } from 'uuid';
+import { GameService } from '../../services/gameService.js';
 
-
-
-const setupGameSocket=(wss)=>{
-
-
-let games = {}; // Stocke les parties en cours
+const setupGameSocket = (wss) => {
+  // Stockage en mémoire des connexions actives
+  const activeConnections = new Map(); // gameId -> { white: ws, black: ws }
 
 wss.on("connection", (ws) => {
   console.log("✅ Nouveau joueur connecté depuis --> serverLocal");

@@ -16,7 +16,7 @@ const WebSocketProvider =({children})=>{
 useEffect(() => {
   const isLocal = window.location.hostname === "localhost";
   const protocol = isLocal ? "ws" : "wss";
-  const host = isLocal ? "localhost:8080" : "chess-game-backend-1p1l.onrender.com/ws";
+  const host = isLocal ? "localhost:8080" : "chess-game-v-2-0.onrender.com/ws";
   let ws;
 
   const setupWebSocket = (url) => {

@@ -1,6 +1,6 @@
 export const getEvaluation = async (fen, difficulty = 'medium') => {
   try {
-    const response = await fetch('http://127.0.0.1:5000/api/bestmove', {
+    const response = await fetch('https://chess-stockfish-080p.onrender.com/api/bestmove', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
