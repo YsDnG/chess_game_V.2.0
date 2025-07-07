@@ -6,7 +6,7 @@ import { WebSocketServer } from 'ws';
 import dotenv from 'dotenv';
 
 import openingsRouter from './route/opening.js';      // API REST
-import setupGameSocket  from '../ws/ws-server.js'; // WebSocket
+import setupGameSocket  from './ws/ws-server.js'; // WebSocket
 
 // Charger les variables d’environnement
 dotenv.config();
