@@ -8,8 +8,15 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 // Charger les variables d'environnement
-const envPath = path.resolve(process.cwd(), '.env');
+const envPath = process.env.NODE_ENV === 'production' 
+  ? path.resolve(process.cwd(), '.env')
+  : path.resolve(process.cwd(), '../../.env');
+
 console.log('Chargement du fichier .env depuis:', envPath);
+console.log('Dossier de travail:', process.cwd());
+console.log('__dirname:', __dirname);
+
+dotenv.config({ path: envPath });
 
 dotenv.config({ path: envPath });
 
