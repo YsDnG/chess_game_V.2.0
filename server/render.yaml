@@ -1,0 +1,26 @@
+services:
+  - type: web
+    name: chess-backend
+    env: node
+    buildCommand: cd server/backend && npm install
+    startCommand: cd server/backend && node serverBackEnd.js
+    envVars:
+      - key: PORT
+        value: 10000
+      - key: NODE_ENV
+        value: production
+      - key: STOCKFISH_API_URL
+        value: https://chess-stockfish-server.onrender.com
+    rootDir: .
+
+  - type: web
+    name: stockfish-server
+    env: python
+    buildCommand: cd server && pip install -r requirements.txt
+    startCommand: cd server && python stockfish_server.py
+    envVars:
+      - key: PORT
+        value: 5000
+      - key: PYTHONUNBUFFERED
+        value: true
+    rootDir: .
