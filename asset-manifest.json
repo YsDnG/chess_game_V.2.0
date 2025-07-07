@@ -1,0 +1,12 @@
+{
+  "files": {
+    "main.css": "/chess_game_V.2.0/static/css/main.eda6a315.css",
+    "main.js": "/chess_game_V.2.0/static/js/main.e0315f92.js",
+    "static/media/chess_background_n2.png": "/chess_game_V.2.0/static/media/chess_background_n2.625523b9812c8cd22878.png",
+    "index.html": "/chess_game_V.2.0/index.html"
+  },
+  "entrypoints": [
+    "static/css/main.eda6a315.css",
+    "static/js/main.e0315f92.js"
+  ]
+}
