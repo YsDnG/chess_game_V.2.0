@@ -18,7 +18,6 @@ console.log('__dirname:', __dirname);
 
 dotenv.config({ path: envPath });
 
-dotenv.config({ path: envPath });
 
 // Vérification des variables d'environnement
 console.log('Variables d\'environnement chargées:');

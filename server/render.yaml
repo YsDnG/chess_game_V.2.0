@@ -10,13 +10,17 @@ services:
       - key: NODE_ENV
         value: production
       - key: STOCKFISH_API_URL
-        value: https://chess-stockfish-server.onrender.com  # Mets ici l'URL une fois que le service est déployé
+        value: https://chess-stockfish-server.onrender.com
     rootDir: server/backend
 
   - type: web
-    name: stockfish-server
+    name: chess-stockfish
     env: python
-    buildCommand: pip install -r requirements.txt
+    python:
+      version: "3.9.16"
+    buildCommand: |
+      python -m pip install --upgrade pip
+      pip install -r requirements.txt
     startCommand: python stockfish_server.py
     envVars:
       - key: PORT
