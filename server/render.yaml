@@ -17,9 +17,14 @@ services:
     name: chess-stockfish
     env: docker
     dockerfilePath: ./server/stockfish/Dockerfile
+    dockerContext: .
+    dockerBuildArgs:
+      - PYTHON_VERSION=3.9.16
     envVars:
       - key: PORT
         value: 5000
       - key: PYTHONUNBUFFERED
-        value: true
+        value: "1"
+      - key: PYTHONDONTWRITEBYTECODE
+        value: "1"
     rootDir: .
