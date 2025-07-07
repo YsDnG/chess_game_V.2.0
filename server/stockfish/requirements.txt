@@ -1,7 +1,8 @@
---only-binary=:all:
-setuptools==65.5.0
+setuptools>=65.5.0
 wheel
-numpy==1.24.3 --only-binary=numpy
+build
+numpy==2.3.1
 flask==2.3.3
 flask-cors==4.0.0
 python-chess==1.999
+pyyaml==6.0.2   
