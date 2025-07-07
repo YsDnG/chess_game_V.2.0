@@ -30,4 +30,22 @@ if (!supabaseUrl || !supabaseKey) {
   throw new Error('Configuration Supabase manquante');
 }
 
-// ... reste du code inchangé
+let supabase;
+
+try {
+  supabase = createClient(supabaseUrl, supabaseKey, {
+    auth: {
+      persistSession: false,
+      autoRefreshToken: false,
+      detectSessionInUrl: false
+    }
+  });
+  console.log('✅ Client Supabase initialisé avec succès');
+} catch (error) {
+  console.error('❌ Erreur lors de la création du client Supabase:', error.message);
+  throw error;
+}
+
+export { supabase };
+// Compatibilité avec les imports existants
+export default supabase;
