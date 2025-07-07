@@ -19,8 +19,8 @@ services:
     python:
       version: "3.9.16"
     buildCommand: |
-      python -m pip install --upgrade pip
-      pip install -r requirements.txt
+      python -m pip install --upgrade pip setuptools wheel
+      pip install -e .
     startCommand: python stockfish_server.py
     envVars:
       - key: PORT
