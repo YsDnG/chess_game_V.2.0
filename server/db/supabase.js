@@ -1,19 +1,24 @@
 import { createClient } from '@supabase/supabase-js';
 import dotenv from 'dotenv';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
-dotenv.config();
+// Configuration du chemin pour __dirname en ES modules
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
-// Vérification des variables d'environnement
-console.log('Configuration Supabase:');
-console.log('- URL:', process.env.SUPABASE_URL);
-console.log('- Clé API présente:', !!process.env.SUPABASE_KEY);
+// Charger les variables d'environnement
+dotenv.config({ path: path.resolve(__dirname, '../../.env') });
 
-const supabaseUrl = process.env.SUPABASE_URL || 'https://vcsxawaglymmllesjtfg.supabase.co';
-const supabaseKey = process.env.SUPABASE_KEY?.trim(); // Supprime les espaces inutiles
+// Configuration de Supabase
+const supabaseUrl = process.env.SUPABASE_URL;
+const supabaseKey = process.env.SUPABASE_KEY?.trim();
 
-if (!supabaseKey) {
-  console.error('❌ ERREUR: SUPABASE_KEY est manquante dans les variables d\'environnement');
-  throw new Error('SUPABASE_KEY is not defined in environment variables');
+if (!supabaseUrl || !supabaseKey) {
+  console.error('❌ ERREUR: Configuration Supabase manquante');
+  console.error('- SUPABASE_URL:', !!supabaseUrl);
+  console.error('- SUPABASE_KEY:', !!supabaseKey);
+  throw new Error('Configuration Supabase manquante');
 }
 
 let supabase;
@@ -26,7 +31,6 @@ try {
       detectSessionInUrl: false
     }
   });
-
   console.log('✅ Client Supabase initialisé avec succès');
 } catch (error) {
   console.error('❌ Erreur lors de la création du client Supabase:', error.message);
