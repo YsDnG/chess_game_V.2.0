@@ -1,7 +1,7 @@
 {
   "name": "chess_game",
   "version": "0.1.0",
-  "homepage": "https://votre-nom-utilisateur.github.io/Chess_Ia",
+  "homepage": "https://ysdng.github.io/Chess_Game_V.2.0",
   "private": true,
   "dependencies": {
     "@radix-ui/react-slot": "^1.1.2",
