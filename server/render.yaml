@@ -16,8 +16,8 @@ services:
   - type: web
     name: stockfish-server
     env: python
-    buildCommand: cd server && pip install -r requirements.txt
-    startCommand: cd server && python stockfish_server.py
+    buildCommand: cd server/stockfish && pip install -r requirements.txt
+    startCommand: cd server/stockfish && python stockfish_server.py
     envVars:
       - key: PORT
         value: 5000
